@@ -17,6 +17,7 @@
 .tool:focus::after {
   opacity: 1;
   z-index: 100;
+  transform: scale(1) translateY(0);
 }
 
 .tool::before {
@@ -26,6 +27,13 @@
   bottom: 100%;
   margin-left: -0.5em;
   content: "";
+  transform: scale(0.6) translateY(-90%);
+  transition: all 0.65s cubic-bezier(0.85, -0.18, 0.31, 1.26), opacity 0.65s 0.5s;
+}
+
+.tool:hover::before,
+.tool:focus::before {
+  transition-delay: .2s;
 }
 
 .tool::after {
@@ -37,4 +45,11 @@
   padding: 1em;
   margin-left: -8.75em;
   content: attr(data-tip);
+  transform: scale(0.6) translateY(50%);
+  transition: all 0.65s cubic-bezier(.84, -0.18, 0.31, 1.26) 0.2s;
+}
+
+.tool:hover::after,
+.tool:focus::after {
+  transition-delay: 0s;
 }
